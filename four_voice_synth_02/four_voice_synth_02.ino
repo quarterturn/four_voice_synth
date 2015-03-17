@@ -178,7 +178,7 @@ uint8_t oscBDetuneCC = 64; // default to no detune
 int pitchBendCC = 0; // default to no bend
 // oscillator waveform
 uint8_t oscAWFCC = 22; // sawtooth
-uint8_t oscBWFCC = 0; // sine
+uint8_t oscBWFCC = 22; // sawtooth
 // LFO level
 uint8_t lfoLevelCC = 0;
 // LFO rate
@@ -197,7 +197,7 @@ uint8_t noiseReleaseCC = 0;
 uint8_t vcfAttackCC = 0;
 uint8_t vcfDecayCC = 42; // about 500 ms
 uint8_t vcfSustainCC = 64;
-uint8_t vcfReleaseCC = 0;
+uint8_t vcfReleaseCC = 42;
 // VCF parameters
 uint8_t vcfCutoffCC = 127; // default to no cutoff
 uint8_t vcfDepthCC = 127; // default to max range
@@ -206,7 +206,7 @@ uint8_t vcfResonanceCC = 0; // default to minimum resonance
 // actual levels
 // oscillator waveform
 uint8_t oscAWF = 1;
-uint8_t oscBWF = 0;
+uint8_t oscBWF = 1;
 // oscillator frequency
 float oscAFreq;
 float oscBFreq;
@@ -960,10 +960,10 @@ void doBend(byte channel, int bend)
 
   // fetch the frequencies based on the notes
   // yep - we have to calculate things again
-  oscB1Freq = noteFreqs[notes[0].myPitch];
-  oscB2Freq = noteFreqs[notes[1].myPitch];
-  oscB3Freq = noteFreqs[notes[2].myPitch];
-  oscB4Freq = noteFreqs[notes[3].myPitch];
+  oscA1Freq = oscB1Freq = noteFreqs[notes[0].myPitch];
+  oscA2Freq = oscB2Freq = noteFreqs[notes[1].myPitch];
+  oscA3Freq = oscB3Freq = noteFreqs[notes[2].myPitch];
+  oscA4Freq = oscB4Freq = noteFreqs[notes[3].myPitch];
 
 
   // detune osc b
